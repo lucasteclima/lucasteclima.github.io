@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Tec - Portfólio e Serviços</title>
+  <style>
+    :root {
+      /* Questão 2: paleta profissional em preto e vermelho */
+      --cor-principal: #dc2626;
+      --cor-principal-escura: #991b1b;
+      --cor-fundo: #09090b;
+      --cor-cartao: #18181b;
+      --cor-campo: #111114;
+      --cor-borda: #27272a;
+      --cor-texto: #f4f4f5;
+      --cor-texto-suave: #a1a1aa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--cor-principal-escura) 0%, var(--cor-principal) 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 3px solid #ef4444;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      color: #fee2e2;
+      font-size: 0.98rem;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    section {
+      background-color: var(--cor-cartao);
+      border: 1px solid var(--cor-borda);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.25rem;
+      color: #ffffff;
+      padding-left: 12px;
+      border-left: 4px solid var(--cor-principal);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--cor-borda);
+      margin-bottom: 14px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--cor-texto-suave);
+    }
+
+    label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--cor-texto);
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--cor-texto);
+      background-color: var(--cor-campo);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #71717a;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--cor-principal);
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.22);
+    }
+
+    button {
+      background-color: var(--cor-principal);
+      color: #ffffff;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+
+    button:hover {
+      background-color: #b91c1c;
+    }
+
+    button:active {
+      transform: scale(0.99);
+    }
+
+    #aviso {
+      margin-top: 12px;
+      font-weight: bold;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 16px 28px;
+      font-size: 0.88rem;
+      color: var(--cor-texto-suave);
+      border-top: 1px solid var(--cor-borda);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lucas Tec</h1>
+    <p>Lucas Lima · Técnico em Informática e Manutenção de PCs</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Sobre mim</h2>
+      <!-- Questão 1: imagem salva em portfolio/img/foto.jpg -->
+      <img src="img/foto.jpg" alt="Foto de Lucas Lima - Lucas Tec" width="240">
+      <p>
+        Sou Lucas Lima, estudante do Técnico em Informática e responsável pela
+        Lucas Tec em Palmares. Atuo com montagem de PCs, limpeza interna,
+        formatação e manutenção de computadores e notebooks.
+      </p>
+    </section>
+
+    <section>
+      <h2>Fale comigo</h2>
+      <label for="nome">Seu nome:</label>
+      <input type="text" id="nome" placeholder="Digite seu nome">
+
+      <label for="mensagem">Sua mensagem:</label>
+      <textarea id="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+
+      <button type="button" id="btnEnviar">Enviar pelo WhatsApp</button>
+      <p id="aviso"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Lucas Tec · @lucaslima.9</p>
+  </footer>
+
+  <script>
+    // Questão 3 - TODO 1: apenas dígitos (55 + DDD + número)
+    // Aviso da atividade: este número fica visível no código-fonte público.
+    var numeroWhatsApp = "5591993561726";
+
+    document.getElementById("btnEnviar").addEventListener("click", function () {
+      var nome = document.getElementById("nome").value.trim();
+      var mensagem = document.getElementById("mensagem").value.trim();
+      var aviso = document.getElementById("aviso");
+
+      // TODO 2: validação de campos vazios
+      if (nome === "" || mensagem === "") {
+        aviso.textContent = "Preencha o nome e a mensagem.";
+        aviso.style.color = "#ef4444";
+        return;
+      }
+
+      aviso.textContent = "";
+
+      // TODO 3: montagem do texto enviado ao WhatsApp
+      var texto = "Olá! Meu nome é " + nome + ". " + mensagem;
+      var link = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(texto);
+      window.open(link, "_blank");
+    });
+  </script>
+</body>
+</html>
